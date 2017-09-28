@@ -37,16 +37,56 @@ public class MainActivity extends AppCompatActivity {
 
         JSONArray data = new JSONArray();
         JSONObject payload = new JSONObject();
+        JSONObject payload2 = new JSONObject();
+        JSONObject payload3 = new JSONObject();
+        JSONObject payload4 = new JSONObject();
 
 
         try {
-            payload.put("name","John");
+            payload.put("name","John Zeratsky");
             payload.put("imageUrl","https://www.gv.com/img/team-large/john-zeratsky.jpg");
             payload.put("title","People");
-            payload.put("text","someshit");
-            payload.put("time","1234");
-            payload.put("description","something");
+            payload.put("text","Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+            payload.put("time","1501577379000");
+            payload.put("description","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lectus non rhoncus tincidunt,\n" +
+                    "    quam lectus lacinia nunc, vitae egestas felis ligula a eros. Nulla ac ex finibus, sodales nisl ac, convallis urna. Donec\n" +
+                    "    ornare aliquam dapibus. Ut aliquam massa ex, a maximus lectus condimentum vitae. Donec rutrum aliquet\n" +
+                    "    ullamcorper. Suspendisse sit amet pulvinar tellus.");
+
+
+            payload2.put("name","Sierra");
+            payload2.put("imageUrl","http://thewirecutter.com/wp-content/uploads/2016/09/sierra-blog-lede-630.jpg");
+            payload2.put("time","1501577379000");
+            payload2.put("description","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lectus non rhoncus tincidunt,\n" +
+                    "    quam lectus lacinia nunc, vitae egestas felis ligula a eros. Nulla ac ex finibus, sodales nisl ac, convallis urna. Donec\n" +
+                    "    ornare aliquam dapibus. Ut aliquam massa ex, a maximus lectus condimentum vitae. Donec rutrum aliquet\n" +
+                    "    ullamcorper. Suspendisse sit amet pulvinar tellus");
+
+            payload3.put("name","Happen");
+            payload3.put("title","Quote");
+            payload3.put("text","You have to make it happen");
+            payload3.put("time","1501404579000");
+            payload3.put("description","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lectus non rhoncus tincidunt,\n" +
+                    "    quam lectus lacinia nunc, vitae egestas felis ligula a eros. Nulla ac ex finibus, sodales nisl ac, convallis urna. Donec\n" +
+                    "    ornare aliquam dapibus. Ut aliquam massa ex, a maximus lectus condimentum vitae. Donec rutrum aliquet\n" +
+                    "    ullamcorper. Suspendisse sit amet pulvinar tellus.");
+
+
+
+            payload4.put("name","Manali");
+            payload4.put("imageUrl","https://www.holidify.com/images/compressed/4709.jpg");
+            payload4.put("title","Place");
+            payload4.put("time","1501404579000");
+            payload4.put("description","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lectus non rhoncus tincidunt,\n" +
+                    "    quam lectus lacinia nunc, vitae egestas felis ligula a eros. Nulla ac ex finibus, sodales nisl ac, convallis urna. Donec\n" +
+                    "    ornare aliquam dapibus. Ut aliquam massa ex, a maximus lectus condimentum vitae. Donec rutrum aliquet\n" +
+                    "    ullamcorper. Suspendisse sit amet pulvinar tellus.");
+
             data.put(payload);
+            data.put(payload2);
+            data.put(payload3);
+            data.put(payload4);
+
             parseJsonFeed(data);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -59,24 +99,34 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < response.length(); i++) {
                 JSONObject feedObj = (JSONObject) response.get(i);
 
-                Log.d("JSON","object "+feedObj);
-
                 DataItem item = new DataItem();
+
                 item.setName(feedObj.getString("name"));
 
                 String image = feedObj.isNull("imageUrl") ? null : feedObj
                         .getString("imageUrl");
 
                 item.setImage(image);
-                item.setTitle(feedObj.getString("title"));
-                item.setText(feedObj.getString("text"));
-                item.setTimeStamp(feedObj.getString("time"));
-                item.setDescription(feedObj.getString("description"));
+
+                String title = feedObj.isNull("title") ? null : feedObj
+                        .getString("title");
+                item.setTitle(title);
+
+                String text = feedObj.isNull("text") ? null : feedObj
+                        .getString("text");
+                item.setText(text);
+
+                String time = feedObj.isNull("time") ? null : feedObj
+                        .getString("time");
+                item.setTimeStamp(time);
+
+                String description = feedObj.isNull("description") ? null : feedObj
+                        .getString("description");
+                item.setDescription(description);
 
                 dataItems.add(item);
             }
 
-            // notify data changes to list adapater
             listAdapter.notifyDataSetChanged();
         } catch (JSONException e) {
             e.printStackTrace();

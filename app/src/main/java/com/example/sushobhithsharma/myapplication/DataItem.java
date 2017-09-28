@@ -2,11 +2,13 @@ package com.example.sushobhithsharma.myapplication;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+
 /**
  * Created by sushobhith.sharma on 28/09/17.
  */
 
-public class DataItem {
+public class DataItem implements Serializable{
 
     private String name;
 
