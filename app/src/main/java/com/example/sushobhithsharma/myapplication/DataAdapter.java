@@ -6,13 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Parcelable;
 import android.support.v7.widget.CardView;
-import android.text.Html;
-import android.text.TextUtils;
-import android.text.format.DateUtils;
-import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
-import android.R.color;
-/**
- * Created by sushobhith.sharma on 28/09/17.
- */
+
 
 public class DataAdapter extends BaseAdapter {
     private Activity activity;
@@ -77,21 +67,15 @@ public class DataAdapter extends BaseAdapter {
 
         final DataItem item = dataItems.get(i);
 
-        if(item.getName() == null){
-            name.setVisibility(View.GONE);
-        } else {
-            name.setText(item.getName());
+        if(item.getName() != null){
+            name.setText("from "+item.getName());
         }
 
-        if(item.getTitle() == null) {
-            title.setVisibility(View.GONE);
-        } else {
+        if(item.getTitle() != null) {
             title.setText(item.getTitle());
         }
 
-        if(item.getText() == null) {
-            text.setVisibility(View.GONE);
-        } else {
+        if(item.getText() != null) {
             text.setText(item.getText());
         }
 
@@ -144,10 +128,13 @@ public class DataAdapter extends BaseAdapter {
                 String btnText = like.getText().toString();
                 if (btnText.equals("LIKE")) {
                     like.setText("UNLIKE");
-                    like.setBackgroundColor(Color.parseColor("#42A5F5"));
+                    like.setBackgroundColor(Color.parseColor("#00ADB7"));
+                    like.setTextColor(Color.parseColor("#FFFFFF"));
+
                 } else {
                     like.setText("LIKE");
-                    like.setBackgroundColor(Color.parseColor("#E3F2FD"));
+                    like.setBackgroundColor(Color.parseColor("#CDEBEB"));
+                    like.setTextColor(Color.parseColor("#00ADB7"));
                 }
 
             }

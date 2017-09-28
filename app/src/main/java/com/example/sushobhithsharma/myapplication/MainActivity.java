@@ -1,19 +1,12 @@
 package com.example.sushobhithsharma.myapplication;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,18 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             payload.put("name","John Zeratsky");
-            payload.put("imageUrl","https://www.gv.com/img/team-large/john-zeratsky.jpg");
+            payload.put("imageUrl","http://thewirecutter.com/wp-content/uploads/2016/09/sierra-blog-lede-630.jpg");
             payload.put("title","People");
             payload.put("text","Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             payload.put("time","1501577379000");
             payload.put("description","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lectus non rhoncus tincidunt,\n" +
                     "    quam lectus lacinia nunc, vitae egestas felis ligula a eros. Nulla ac ex finibus, sodales nisl ac, convallis urna. Donec\n" +
                     "    ornare aliquam dapibus. Ut aliquam massa ex, a maximus lectus condimentum vitae. Donec rutrum aliquet\n" +
-                    "    ullamcorper. Suspendisse sit amet pulvinar tellus.");
+                    "    ullamcorper. Suspendisse sit amet pulvinar tellus");
 
 
             payload2.put("name","Sierra");
             payload2.put("imageUrl","http://thewirecutter.com/wp-content/uploads/2016/09/sierra-blog-lede-630.jpg");
+            payload2.put("title","People");
             payload2.put("time","1501577379000");
             payload2.put("description","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lectus non rhoncus tincidunt,\n" +
                     "    quam lectus lacinia nunc, vitae egestas felis ligula a eros. Nulla ac ex finibus, sodales nisl ac, convallis urna. Donec\n" +
@@ -73,14 +67,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            payload4.put("name","Manali");
-            payload4.put("imageUrl","https://www.holidify.com/images/compressed/4709.jpg");
-            payload4.put("title","Place");
-            payload4.put("time","1501404579000");
+            payload4.put("name","John Zeratsky");
+            payload4.put("imageUrl","http://thewirecutter.com/wp-content/uploads/2016/09/sierra-blog-lede-630.jpg");
+            payload4.put("title","People");
+            payload4.put("text","Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+            payload4.put("time","1501577379000");
             payload4.put("description","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dictum, lectus non rhoncus tincidunt,\n" +
                     "    quam lectus lacinia nunc, vitae egestas felis ligula a eros. Nulla ac ex finibus, sodales nisl ac, convallis urna. Donec\n" +
                     "    ornare aliquam dapibus. Ut aliquam massa ex, a maximus lectus condimentum vitae. Donec rutrum aliquet\n" +
-                    "    ullamcorper. Suspendisse sit amet pulvinar tellus.");
+                    "    ullamcorper. Suspendisse sit amet pulvinar tellus");
 
             data.put(payload);
             data.put(payload2);
